@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../services/ml_service.dart';  // Import the new ML service
-import '../models/job.dart';           // Import your job model
-import '../widgets/risk_score_indicator.dart';  // Import your risk score indicator
+import '../services/ml_service.dart';  // Connects to fake ML logic
+import '../models/job.dart';          // Job model
+import '../widgets/risk_score_indicator.dart';  // For visual score indicator
 
 class JobAnalysisScreen extends StatefulWidget {
   const JobAnalysisScreen({super.key});
@@ -91,7 +91,7 @@ class _JobAnalysisScreenState extends State<JobAnalysisScreen> {
   Future<void> _analyzeJob() async {
     if (_formKey.currentState?.validate() ?? false) {
       setState(() => _isAnalyzing = true);
-      
+
       try {
         final jobDetails = {
           'title': _titleController.text,
@@ -100,10 +100,8 @@ class _JobAnalysisScreenState extends State<JobAnalysisScreen> {
           'salary': _salaryController.text,
         };
 
-        // Call the MLService to analyze the job
         final result = await MLService.analyzeJob(jobDetails);
 
-        // Show the results
         if (mounted) {
           showDialog(
             context: context,
@@ -143,14 +141,14 @@ class AnalysisResultDialog extends StatelessWidget {
           RiskScoreIndicator(score: job.riskScore),
           const SizedBox(height: 16),
           Text(
-            'This job posting appears to be ${job.isGenuine ? 'genuine' : 'fake'}',
+            'This job posting appears to be ${job.isGenuine ? 'genuine ✅' : 'fake ⚠️'}',
             style: const TextStyle(fontSize: 18),
           ),
           const SizedBox(height: 8),
           TextButton(
             onPressed: () {
               Navigator.pop(context);
-              // Navigate to chat for more details
+              // You can trigger your AI assistant screen here
             },
             child: const Text('Ask AI Assistant for details'),
           ),

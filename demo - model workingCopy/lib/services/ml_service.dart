@@ -1,7 +1,7 @@
 import 'package:tflite_flutter/tflite_flutter.dart';
 import '../models/job.dart';
 
-class MLService {
+/*class MLService {
   static late Interpreter _interpreter;
 
   static Future<void> loadModel() async {
@@ -56,4 +56,56 @@ class MLService {
   static void close() {
     _interpreter.close();
   }
+}*/
+import 'dart:math';
+import 'package:flutter/foundation.dart';
+import '../models/job.dart';
+
+class MLService {
+  static Future<Job> analyzeJob(Map<String, String> jobDetails) async {
+    final title = jobDetails['title'] ?? '';
+    final description = jobDetails['description'] ?? '';
+    final company = jobDetails['company'] ?? '';
+    final salary = jobDetails['salary'] ?? '';
+
+    // 🧠 Fetch fake risk score using your logic
+    final riskScore = await _fetchRiskScore(title, description, company, salary);
+
+    // 💡 Decide if job is genuine or fake based on threshold
+    final isGenuine = riskScore < 50;
+
+    return Job(
+      title: title,
+      description: description,
+      company: company,
+      salary: salary,
+      riskScore: double.parse(riskScore.toStringAsFixed(2)), // Rounded to 2 decimals
+      isGenuine: isGenuine, id: '',
+    );
+  }
+
+  static Future<double> _fetchRiskScore(
+    String title,
+    String description,
+    String company,
+    String salary,
+  ) async {
+    try {
+      final random = Random();
+
+    // Generate realistic random scores
+    // You can use conditions to simulate logic
+    if (company.toLowerCase().contains("pvt") && description.toLowerCase().contains("work from home") && title.toLowerCase().contains("intern")) {
+      return 60 + random.nextInt(30) + random.nextDouble(); // 60% to 90%
+    } else if (description.toLowerCase().contains("mnc") && salary.toLowerCase().contains("lpa") ) {
+      return 20 + random.nextInt(30) + random.nextDouble(); // 20% to 50%
+    } else {
+      return 35 + random.nextInt(40) + random.nextDouble(); // 35% to 75%
+    }
+    } catch (e) {
+      debugPrint("Error generating fake risk score: $e");
+      return 50.0; // Fallback
+    }
+  }
 }
+

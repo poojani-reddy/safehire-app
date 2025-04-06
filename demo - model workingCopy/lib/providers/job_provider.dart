@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:convert';
-
+import 'dart:math';
 import '../models/job.dart';
 import '../models/message.dart';
 import '../api_key.dart'; // Ensure API keys are stored properly
@@ -25,7 +25,7 @@ class JobProvider with ChangeNotifier {
       description: description,
       company: company,
       salary: salary,
-      riskScore: riskScore,
+      riskScore: riskScore, isGenuine:riskScore<50,
     );
 
     _jobs.add(job);
@@ -35,23 +35,24 @@ class JobProvider with ChangeNotifier {
 
   /// Fetches risk score for a job from Firebase
   Future<double> _fetchRiskScore(
-      String title, String description, String company, String salary) async {
-    try {
-      DocumentSnapshot snapshot = await FirebaseFirestore.instance
-          .collection('job_risk_scores')
-          .doc('$title-$company')
-          .get();
+    String title, String description, String company, String salary) async {
+  try {
+    final random = Random();
 
-      if (snapshot.exists) {
-        return snapshot['riskScore']?.toDouble() ?? 50.0;
-      } else {
-        return 50.0;
-      }
-    } catch (e) {
-      debugPrint("Error fetching risk score: $e");
-      return 50.0;
+    // Generate realistic random scores
+    // You can use conditions to simulate logic
+    if (company.toLowerCase().contains("pvt") && description.toLowerCase().contains("work from home") && title.toLowerCase().contains("intern")) {
+      return 60 + random.nextInt(30) + random.nextDouble(); // 60% to 90%
+    } else if (description.toLowerCase().contains("mnc") && salary.toLowerCase().contains("lpa") ) {
+      return 20 + random.nextInt(30) + random.nextDouble(); // 20% to 50%
+    } else {
+      return 35 + random.nextInt(40) + random.nextDouble(); // 35% to 75%
     }
+  } catch (e) {
+    debugPrint("Error generating fake risk score: $e");
+    return 50.0; // Safe fallback
   }
+}
 
   /// Handles user messages and fetches AI-generated responses
   void sendMessage(String content) async {

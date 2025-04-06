@@ -21,6 +21,6 @@ class Job {
     required this.riskScore,
     this.reportCount = 0,
     this.genuineVotes = 0,
-    this.fakeVotes = 0,
+    this.fakeVotes = 0,required bool isGenuine,
   });
 } 
