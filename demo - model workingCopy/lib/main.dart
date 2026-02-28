@@ -20,7 +20,7 @@ void main() async {
     if (kIsWeb) {
       await Firebase.initializeApp(
         options: const FirebaseOptions(
-          apiKey: "AIzaSyAeE7GZqQKPhy9Smptu_0ojQ2CG3Lrj5pE",
+          apiKey: "API_KEY",
           authDomain: "safehire-b301a.firebaseapp.com",
           projectId: "safehire-b301a",
           storageBucket: "safehire-b301a.appspot.com",

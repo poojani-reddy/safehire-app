@@ -6,7 +6,7 @@ class ApiService {
   static const String groqApiUrl = 'https://api.groq.com/openai/v1/chat/completions';  
   static const String groqModel = 'llama-3.3-70b-versatile'; // Adjust model as needed
   static const String firebaseMLUrl = 'https://firebaseml.googleapis.com/v1/projects/YOUR_PROJECT_ID/models/YOUR_MODEL_ID:predict';
-  static const String groqApiKey = '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';
+  static const String groqApiKey = 'GROQ_API_KEY';
 
   /// 🔹 Fetch AI-generated responses using GROQ API
   Future<String> fetchAIResponse(String userInput) async {
