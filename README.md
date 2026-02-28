@@ -1,7 +1,7 @@
 # 🚀 SafeHire – Smart Job Validation & Career Companion
 
 > AI & ML-Powered Mobile App to Detect Fake Job Postings and Guide Career Growth  
-> Built with ❤️ using Flutter & Firebase  
+> Built using Flutter & Firebase  
 
 ---
 
