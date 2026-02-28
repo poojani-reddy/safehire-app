@@ -1,11 +1,11 @@
-# 🚀 SafeHire – Smart Job Validation & Career Companion
+# SafeHire – Smart Job Validation & Career Companion
 
 > AI & ML-Powered Mobile App to Detect Fake Job Postings and Guide Career Growth  
 > Built using Flutter & Firebase  
 
 ---
 
-## 📌 Overview
+## Overview
 
 **SafeHire** is an intelligent job safety mobile application designed to protect job seekers from fraudulent job postings.  
 
@@ -22,7 +22,7 @@ SafeHire solves this problem using:
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 
 Online job platforms lack real-time fraud detection mechanisms.  
 Users struggle to differentiate between genuine and fake job postings.
@@ -35,33 +35,30 @@ SafeHire provides:
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
-### 📱 Frontend
+### Frontend
 - Flutter
 - Dart
 
-### 🔥 Backend
+### Backend
 - Firebase Authentication
 - Firebase Firestore
 - Firebase Cloud Functions
 - Firebase Storage
 
-### 🧠 Machine Learning
+### Machine Learning
 - LightGBM (Fraud Detection Model)
 - Python (Model Training & Preprocessing)
 
-### 🤖 AI Assistant
+### AI Assistant
 - Groq API
 - LangChain
 - Text + Voice Interaction
 
-### ☁️ Cloud Hosting
-- AWS (ML Model Deployment)
-
 ---
 
-## 🧠 Core Features
+## Core Features
 
 ### 1️⃣ Fake Job Detection
 - Uses LightGBM model
@@ -102,7 +99,7 @@ SafeHire provides:
 
 ---
 
-## 🛠️ Methodology
+## Methodology
 
 ### 🔹 Data Collection & Preprocessing
 - Collected job datasets from online platforms
@@ -131,7 +128,7 @@ SafeHire provides:
 
 ---
 
-## 📊 System Architecture (High-Level)
+## System Architecture (High-Level)
              ┌───────────────────────────┐
              │        Mobile User        │
              │   (Flutter Application)   │
@@ -159,7 +156,7 @@ SafeHire provides:
              └───────────────────────────┘
 ---
 
-## 📈 Results
+## Results
 
 - Accurate fraud risk scoring
 - Real-time AI assistance
@@ -169,14 +166,14 @@ SafeHire provides:
 
 ---
 
-## 🔮 Future Scope
+## Future Scope
 
-- 🔍 Explainable AI (SHAP / LIME)
-- 🔔 Real-Time Fraud Alerts (Email/SMS/Push)
-- 🏷️ Verified Job Badge System
-- 📄 AI Resume Analysis & Matching
-- 🌍 Multi-language Support
-- 🧠 Deep Learning Models (BERT / GPT-based NLP)
+- Explainable AI (SHAP / LIME)
+- Real-Time Fraud Alerts (Email/SMS/Push)
+- Verified Job Badge System
+- AI Resume Analysis & Matching
+- Multi-language Support
+- Deep Learning Models (BERT / GPT-based NLP)
 
 ---
 
@@ -190,7 +187,7 @@ SafeHire provides:
 
 ---
 
-## 💡 Conclusion
+## Conclusion
 
 SafeHire is more than just a fraud detection system —  
 it is a **career safety ecosystem**.
